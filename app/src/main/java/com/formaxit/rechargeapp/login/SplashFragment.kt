@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.formaxit.rechargeapp.R
 
 /**
@@ -24,13 +25,13 @@ class SplashFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_splash, container, false)
 
-        val text:TextView = view.findViewById(R.id.splash_text)
-        val mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        val application = requireNotNull(this.activity).application
+        val mainViewModelFactory = MainViewModelFractory(application)
+        val mainViewModel = ViewModelProvider(this,mainViewModelFactory).get(MainViewModel::class.java)
 
-        mainViewModel.logInUser().observe(viewLifecycleOwner, Observer {
-            it?.let {
-                Log.e("SplashFragment",it)
-                text.text = it
+        mainViewModel.user.observe(viewLifecycleOwner, Observer { userCred->
+            userCred?.let {
+
             }
         })
         return view

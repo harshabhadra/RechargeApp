@@ -8,6 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="App.OutLineButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="backgroundTint">@color/colorAccent</item>
         <item name="cornerRadius">8dp</item>
