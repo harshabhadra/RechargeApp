@@ -36,7 +36,6 @@ class LogInFragment : Fragment() {
             mainViewModel.isValidCred(userName,password).let {
                 mainViewModel.logInUser(userName,password).observe(viewLifecycleOwner, Observer {
                     it?.let{
-
                         Timber.e("Response: ${it.toString()}")
                     }?:let {
                         Timber.e("No Response")

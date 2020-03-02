@@ -7,6 +7,10 @@ import com.formaxit.rechargeapp.Network.AppsApi
 import com.formaxit.rechargeapp.database.LogInDatabase
 import com.formaxit.rechargeapp.database.UserCred
 import com.formaxit.rechargeapp.database.UserDao
+import com.formaxit.rechargeapp.model.Authentication
+import com.formaxit.rechargeapp.model.LogIn
+import com.formaxit.rechargeapp.model.RequestInput
+import com.formaxit.rechargeapp.model.Token
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Call
@@ -60,9 +64,11 @@ class Repository (){
     //Network call to log in user
     private fun loginUser(userName: String, password: String, tokenId:String = "123456785") {
 
-        val authentication = Authentication(userName,password)
+        val authentication =
+            Authentication(userName, password)
         val token = Token(tokenId)
-        val requestInput = RequestInput(authentication, token)
+        val requestInput =
+            RequestInput(authentication, token)
         val logIn = LogIn(requestInput)
         apiService.userLogIn(logIn).enqueue(object:Callback<String>{
             override fun onFailure(call: Call<String>, t: Throwable) {

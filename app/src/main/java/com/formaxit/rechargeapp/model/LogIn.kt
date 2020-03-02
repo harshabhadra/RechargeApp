@@ -1,4 +1,4 @@
-package com.formaxit.rechargeapp
+package com.formaxit.rechargeapp.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
