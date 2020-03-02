@@ -22,19 +22,14 @@ class MainViewModel(application: Application) : ViewModel() {
     }
     private val loginRepository: Repository = Repository(application)
 
-    //Initializing Coroutine job
-    val mainViewModelJob = Job()
+    //Initializing Coroutines job
+    private val mainViewModelJob = Job()
 
     //Initialize the uiScope
-    val uiScope = CoroutineScope(Dispatchers.Main + mainViewModelJob)
+    private val uiScope = CoroutineScope(Dispatchers.Main + mainViewModelJob)
 
     //Store user cred
     val user: LiveData<UserCred>
-
-    //Store login details
-    private var _response = MutableLiveData<String>()
-    val response: LiveData<String>
-        get() = _response
 
     val authenticationState = MutableLiveData<AuthenticationState>()
 
@@ -72,7 +67,12 @@ class MainViewModel(application: Application) : ViewModel() {
         return true
     }
 
-    fun logInUser(): LiveData<String> {
-        return repository.getLoginCred("7063102821", "123321")
+    fun logInUser(usern: String, password: String) :LiveData<String>{
+        return repository.getLoginCred(usern,password)
+    }
+
+    //Check if the user entries are valid
+    fun isValidCred(username: String, password: String):Boolean{
+        return username.isNotEmpty() && password.isNotEmpty()
     }
 }

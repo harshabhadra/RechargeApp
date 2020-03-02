@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.formaxit.rechargeapp.R
 
@@ -32,6 +33,9 @@ class SplashFragment : Fragment() {
         mainViewModel.user.observe(viewLifecycleOwner, Observer { userCred->
             userCred?.let {
 
+                view.findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
+            }?:let {
+                view.findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLogInFragment())
             }
         })
         return view

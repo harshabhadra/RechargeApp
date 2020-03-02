@@ -26,8 +26,7 @@
             app:exitAnim="@anim/fragment_close_exit"
             app:popEnterAnim="@anim/fragment_open_enter"
             app:popExitAnim="@anim/fragment_close_exit"
-            app:popUpTo="@+id/splashFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/logInFragment"

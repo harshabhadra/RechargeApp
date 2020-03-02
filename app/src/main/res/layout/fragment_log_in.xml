@@ -25,6 +25,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/log_in_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
@@ -44,6 +45,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/log_in_user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -52,15 +54,16 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/log_in_button"
+            style="@style/App.OutLineButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
             android:text="@string/log_in"
-            style="@style/App.OutLineButton"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
@@ -71,9 +74,9 @@
             android:layout_marginTop="16dp"
             android:text="@string/forget_password"
             style="@style/App.TextButton"
-            app:layout_constraintEnd_toEndOf="@+id/button"
-            app:layout_constraintStart_toStartOf="@+id/button"
-            app:layout_constraintTop_toBottomOf="@+id/button" />
+            app:layout_constraintEnd_toEndOf="@+id/log_in_button"
+            app:layout_constraintStart_toStartOf="@+id/log_in_button"
+            app:layout_constraintTop_toBottomOf="@+id/log_in_button" />
 
         <ImageView
             android:id="@+id/imageView"
